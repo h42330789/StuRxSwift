@@ -21,13 +21,18 @@ class TestTable5ViewController: UIViewController {
     
     lazy var initialVM = Test5ViewModel()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let refreshBtn = UIBarButtonItem(title: "刷新")
-        let addBtn = UIBarButtonItem(title: "+")
-        self.navigationItem.rightBarButtonItems = [addBtn,refreshBtn]
+        if #available(iOS 14.0, *) {
+            let refreshBtn = UIBarButtonItem(title: "刷新")
+            let addBtn = UIBarButtonItem(title: "+")
+            self.navigationItem.rightBarButtonItems = [addBtn, refreshBtn]
+        } else {
+            // Fallback on earlier versions
+            let refreshBtn = UIBarButtonItem(title: "刷新", style: .plain, target: nil, action: nil)
+            let addBtn = UIBarButtonItem(title: "+", style: .plain, target: nil, action: nil)
+            self.navigationItem.rightBarButtonItems = [addBtn, refreshBtn]
+        }
         
         // 刷新数据
 //        let refreshCommand = refreshBtn.rx.tap
@@ -68,11 +73,11 @@ class TestTable5ViewController: UIViewController {
             tableView.setEditing(true, animated: true)
         }
          
-        //获取随机数据
+        // 获取随机数据
         func getRandomResult() -> Observable<[String]> {
             print("生成随机数据。")
             let items = (0 ..< 5).map {_ in
-                "\(arc4random())"
+                "\(Int.random(in: 0...10)))"
             }
             return Observable.just(items)
         }
@@ -80,25 +85,24 @@ class TestTable5ViewController: UIViewController {
 }
 
 extension TestTable5ViewController {
-    //创建表格数据源
+    // 创建表格数据源
      func dataSource() -> RxTableViewSectionedAnimatedDataSource
         <AnimatableSectionModel<String, String>> {
         return RxTableViewSectionedAnimatedDataSource(
-            //设置插入、删除、移动单元格的动画效果
+            // 设置插入、删除、移动单元格的动画效果
             animationConfiguration: AnimationConfiguration(insertAnimation: .top,
                                                            reloadAnimation: .fade,
                                                            deleteAnimation: .left),
-            configureCell: {
-                (dataSource, tv, indexPath, element) in
+            configureCell: { (_, tv, indexPath, element) in
                 let cell = tv.dequeueReusableCell(withIdentifier: "Cell")!
                 cell.textLabel?.text = "条目\(indexPath.row)：\(element)"
                 return cell
         },
             canEditRowAtIndexPath: { _, _ in
-                return true //单元格可删除
+                return true // 单元格可删除
         },
             canMoveRowAtIndexPath: { _, _ in
-                return true //单元格可移动
+                return true // 单元格可移动
         }
         )
     }

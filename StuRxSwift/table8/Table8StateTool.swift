@@ -10,9 +10,8 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-
-typealias KeyType = (Int,Int)
-typealias ContentType = (CGPoint,CGSize)
+typealias KeyType = (Int, Int)
+typealias ContentType = (CGPoint, CGSize)
 
 struct Table8ToolOffsetState {
     var type: KeyType
@@ -26,7 +25,7 @@ class Table8CellModel: IdentifiableType, Equatable {
     var playTitleList: [String]?
     var playContentList: [String]?
     
-    var identity : Identity {
+    var identity: Identity {
         return key ?? ""
     }
     static func == (lhs: Table8CellModel, rhs: Table8CellModel) -> Bool {
@@ -35,8 +34,7 @@ class Table8CellModel: IdentifiableType, Equatable {
 }
 
 public class Table8StateTool {
-    var playOffsetRelay: BehaviorRelay<[String:Table8ToolOffsetState]> = BehaviorRelay(value: [:])
-    
+    var playOffsetRelay: BehaviorRelay<[String: Table8ToolOffsetState]> = BehaviorRelay(value: [:])
     
     static let shared = Table8StateTool()
     private let disposeBag = DisposeBag()
@@ -45,7 +43,7 @@ public class Table8StateTool {
         return "\(type)"
     }
     
-    static func offsetDict(type: KeyType?, content: ContentType) ->  [String:Table8ToolOffsetState] {
+    static func offsetDict(type: KeyType?, content: ContentType) -> [String: Table8ToolOffsetState] {
         
         var offsetDict = Table8StateTool.shared.playOffsetRelay.value
         guard let type = type else {
@@ -59,12 +57,12 @@ public class Table8StateTool {
     
     static func playContent(type: KeyType?) -> ContentType {
         guard let type = type else {
-            return (.zero,.zero)
+            return (.zero, .zero)
         }
         let offsetDict = Table8StateTool.shared.playOffsetRelay.value
         let key = Table8StateTool.offsetTypeKey(type)
         let model = offsetDict[key]
-        let result = model?.content ?? (.zero,.zero)
+        let result = model?.content ?? (.zero, .zero)
         return result
     }
     static func playOffset(type: KeyType?) -> CGPoint {

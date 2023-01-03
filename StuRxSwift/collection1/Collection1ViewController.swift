@@ -38,7 +38,7 @@ class Collection1ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        items.bind(to: collectionView.rx.items){ cv,item,element in
+        items.bind(to: collectionView.rx.items) { cv, item, element in
             let indexPath = IndexPath(item: item, section: 0)
             let cell = cv.dequeueReusableCell(for: indexPath) as MyCollectionViewCell
             cell.label.text = "\(element)"

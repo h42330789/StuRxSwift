@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class Table8TitleCollectionCell: UICollectionViewCell {
     lazy var label: UILabel = {
         let l = UILabel(frame: .init(x: 0, y: 0, width: 60, height: 20))
@@ -40,4 +39,3 @@ class Table8CollectionCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 }
-

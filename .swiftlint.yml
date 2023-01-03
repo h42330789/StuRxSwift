@@ -1,0 +1,57 @@
+included:
+#  - AAA
+#  - BBB
+excluded:
+ - Pods
+
+
+disabled_rules:
+  - identifier_name
+  - trailing_whitespace
+
+# 函数体长度
+function_body_length:
+  warning: 100
+  error: 300
+
+# 单行代码长度,默认error 120
+line_length:
+  warning: 200
+  error: 1250
+
+# 文件长度
+file_length:
+  warning: 600
+  error: 1250
+
+# 类型判断
+force_cast: warning
+# try语句判断
+force_try: warning
+
+#循环
+#代码复杂度,默认为10
+cyclomatic_complexity: 20
+#语法糖
+syntactic_sugar:
+  severity: warning
+  
+type_name:
+  min_length: 3
+  max_length:
+    warning: 40
+    error: 50
+  allowed_symbols: ["_"]
+  validates_start_with_lowercase: false
+  excluded:
+    - id
+    - URL
+
+#custom_rules:
+#  pirates_beat_self: # 规则标识符
+#    name: "禁止'self?.' " # 规则名称
+#    regex: "(self\\?)" # 匹配的模式
+#    match_kinds: # 需要匹配的语法类型
+#      - keyword
+#    message: "为了统一弱引用写法请使用 guard let self = self else { return }"
+#    severity: error

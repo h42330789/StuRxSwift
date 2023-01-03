@@ -15,7 +15,7 @@ enum API1 {
     static func token(username: String,
                       password: String,
                       success: (String) -> Void,
-                      failure: (Error) -> Void){
+                      failure: (Error) -> Void) {
         
     }
     
@@ -64,4 +64,3 @@ enum API2 {
 //
 //    }
 }
-

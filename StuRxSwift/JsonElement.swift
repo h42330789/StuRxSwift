@@ -7,14 +7,14 @@
 
 import UIKit
 
-class JsonElement  {
+class JsonElement {
     let name: String
     let jValue: String?
     
     lazy var asJson: () -> String = { [weak self] in
         if let text = self?.jValue {
             return "\(self?.name ?? ""): \(text)"
-        }else {
+        } else {
             return "text is nil"
         }
     }

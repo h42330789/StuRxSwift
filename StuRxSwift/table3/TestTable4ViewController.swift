@@ -20,14 +20,13 @@ class TestTable4ViewController: UIViewController {
         return t
     }()
     
-    
     lazy var dataSource = {
-        let dt = RxTableViewSectionedReloadDataSource<SectionModel<String,Int>> { dataSource, tableView, indexPath, element in
+        let dt = RxTableViewSectionedReloadDataSource<SectionModel<String, Int>> {_, tableView, indexPath, element in
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
             cell.textLabel?.text = "条目\(indexPath.row)：\(element)"
             return cell
         }
-        dt.titleForHeaderInSection = { dataSource,index in
+        dt.titleForHeaderInSection = { dataSource, index in
             return dataSource.sectionModels[index].model
         }
         return dt
@@ -42,9 +41,9 @@ class TestTable4ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let refreshBtn = UIBarButtonItem(title: "刷新")
-        let stopBtn = UIBarButtonItem(title: "停止")
-        self.navigationItem.rightBarButtonItems = [refreshBtn,stopBtn]
+        let refreshBtn = UIBarButtonItem(title: "刷新", style: .plain, target: nil, action: nil)
+        let stopBtn = UIBarButtonItem(title: "停止", style: .plain, target: nil, action: nil)
+        self.navigationItem.rightBarButtonItems = [refreshBtn, stopBtn]
         
         let randomResult = refreshBtn.rx.tap
 //            .asObservable()
@@ -52,43 +51,42 @@ class TestTable4ViewController: UIViewController {
             .startWith(()) // 加这个为了让一开始就能自动请求一次数据
 //            .flatMapLatest(getRandomResult)
             .throttle(.seconds(1), scheduler: MainScheduler.instance)
-            .flatMapFirst{
+            .flatMapFirst {
                 self.getRandomResult().take(until: stopBtn.rx.tap)
 //                    .take(while: stopBtn.rx.isSelected)
-            }  //连续请求时只取第一次数据
+            }  // 连续请求时只取第一次数据
             .flatMap(filterResult)
             .share(replay: 1)
         
         randomResult.bind(to: tableView.rx.items(dataSource: dataSource))
-            .disposed(by:disposeBag)
+            .disposed(by: disposeBag)
         
     }
     
-    func getRandomResult() -> Observable<[SectionModel<String,Int>]> {
+    func getRandomResult() -> Observable<[SectionModel<String, Int>]> {
         print("正在请求数据。。。。。。")
-        let items = (0..<5).map{_ in Int(arc4random())}
+        let items = (0..<5).map {_ in Int.random(in: 0...20)}
         let observable = Observable.just([SectionModel(model: "S", items: items)])
         return observable.delay(.seconds(2), scheduler: MainScheduler.instance)
     }
     
-    func filterResult(list: [SectionModel<String,Int>]) -> Observable<[SectionModel<String,Int>]> {
+    func filterResult(list: [SectionModel<String, Int>]) -> Observable<[SectionModel<String, Int>]> {
         return searchBar.rx.text.orEmpty
-            .debounce(.milliseconds(500), scheduler: MainScheduler.instance) //只有间隔超过0.5秒才发送
-            .flatMapLatest{ query -> Observable<[SectionModel<String,Int>]> in
+            .debounce(.milliseconds(500), scheduler: MainScheduler.instance) // 只有间隔超过0.5秒才发送
+            .flatMapLatest { query -> Observable<[SectionModel<String, Int>]> in
                 print("正在筛选数据（条件为：\(query)）")
                 if query.isEmpty {
                     return Observable.just(list)
                 } else {
                     // 条件不为空，则只返回包含有该文字的数据
-                    var newData: [SectionModel<String,Int>] = []
+                    var newData: [SectionModel<String, Int>] = []
                     for sectionModel in list {
-                        let items = sectionModel.items.filter{ "\($0)".contains(query)}
+                        let items = sectionModel.items.filter { "\($0)".contains(query)}
                         newData.append(SectionModel(model: sectionModel.model, items: items))
                     }
                     return Observable.just(newData)
                 }
             }
     }
-
 
 }

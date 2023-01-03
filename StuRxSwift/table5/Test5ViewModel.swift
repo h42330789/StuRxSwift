@@ -16,7 +16,6 @@ enum TableEditingCommand {
     case deleteItem(indexPath: IndexPath) // 删除数据
 }
 
-
 struct Test5ViewModel {
 
     // 表格数据
@@ -36,7 +35,7 @@ struct Test5ViewModel {
             var items = self.items
             items.append(item)
             return Test5ViewModel(items: items)
-        case .moveItem(let from,let to):
+        case .moveItem(let from, let to):
             var items = self.items
             items.insert(items.remove(at: from.row), at: to.row)
             return Test5ViewModel(items: items)

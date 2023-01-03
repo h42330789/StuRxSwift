@@ -10,11 +10,14 @@ import RxSwift
 import RxCocoa
 import Reusable
 
-
-
 class Table8Cell: UITableViewCell {
     
-    func createCollectionView(y:CGFloat, itemSize: CGSize,margin:CGFloat,cellType: UICollectionViewCell.Type,rowCount:CGFloat = 1, colCount: CGFloat = 2) -> UICollectionView {
+    func createCollectionView(y: CGFloat,
+                              itemSize: CGSize,
+                              margin: CGFloat,
+                              cellType: UICollectionViewCell.Type,
+                              rowCount: CGFloat = 1,
+                              colCount: CGFloat = 2) -> UICollectionView {
         
        let flowLayout: UICollectionViewFlowLayout = {
            let flowLayout = UICollectionViewFlowLayout()
@@ -34,12 +37,18 @@ class Table8Cell: UITableViewCell {
       return collectionV
     }
     
-    lazy var titleCollectionView = createCollectionView(y: 10, itemSize: CGSize(width: 60, height: 20), margin: 5, cellType: Table8TitleCollectionCell.self)
-    lazy var listCollectionView = createCollectionView(y: 50, itemSize: CGSize(width: 60, height: 40), margin: 5,cellType: Table8CollectionCell.self,rowCount: 2)
-    
+    lazy var titleCollectionView = createCollectionView(y: 10,
+                                                        itemSize: CGSize(width: 60, height: 20),
+                                                        margin: 5,
+                                                        cellType: Table8TitleCollectionCell.self)
+    lazy var listCollectionView = createCollectionView(y: 50,
+                                                       itemSize: CGSize(width: 60, height: 40),
+                                                       margin: 5,
+                                                       cellType: Table8CollectionCell.self,
+                                                       rowCount: 2)
     
     let disposeBag: DisposeBag = DisposeBag()
-    var type: KeyType = (-1,-1) {
+    var type: KeyType = (-1, -1) {
         didSet {
             resetOffset()
         }
@@ -74,8 +83,8 @@ class Table8Cell: UITableViewCell {
     
     func bindings() {
         // 绑定数据源
-        modelRelay.map{$0?.playTitleList ?? []}
-            .bind(to: titleCollectionView.rx.items){collectionView,row,element in
+        modelRelay.map {$0?.playTitleList ?? []}
+            .bind(to: titleCollectionView.rx.items) {collectionView, row, element in
                 let indexPath = IndexPath(item: row, section: 0)
                 let cell = collectionView.dequeueReusableCell(for: indexPath) as Table8TitleCollectionCell
                 cell.label.text = element
@@ -83,8 +92,8 @@ class Table8Cell: UITableViewCell {
             }
             .disposed(by: disposeBag)
         
-        modelRelay.map{$0?.playContentList ?? []}
-            .bind(to: listCollectionView.rx.items){ collectionView,row,element in
+        modelRelay.map {$0?.playContentList ?? []}
+            .bind(to: listCollectionView.rx.items) { collectionView, row, element in
                 let indexPath = IndexPath(item: row, section: 0)
                 let cell = collectionView.dequeueReusableCell(for: indexPath) as Table8CollectionCell
                 cell.label.text = element
@@ -98,14 +107,15 @@ class Table8Cell: UITableViewCell {
                 let oldOffset = Table8StateTool.playOffset(type: self?.type)
                 let res = offset.x != oldOffset.x
                 if res {
-                    let dict = Table8StateTool.offsetDict(type: self?.type, content: (offset,self?.titleCollectionView.contentSize ?? .zero))
+                    let dict = Table8StateTool.offsetDict(type: self?.type,
+                                                          content: (offset, self?.titleCollectionView.contentSize ?? .zero))
                 Table8StateTool.shared.playOffsetRelay.accept(dict)
             }
         })
             .disposed(by: disposeBag)
         
         // 将其他的变化对应到本cell上
-        Table8StateTool.shared.playOffsetRelay.map{ [weak self] _ in
+        Table8StateTool.shared.playOffsetRelay.map { [weak self] _ in
             return Table8StateTool.playOffset(type: self?.type)
         }
         .subscribe(onNext: { [weak self] offset in
@@ -124,7 +134,8 @@ class Table8Cell: UITableViewCell {
             let oldOffset = Table8StateTool.playOffset(type: self?.type)
             let res = offset.x != oldOffset.x
             if res {
-                let dict = Table8StateTool.offsetDict(type: self?.type, content: (offset,self?.titleCollectionView.contentSize ?? .zero))
+                let dict = Table8StateTool.offsetDict(type: self?.type,
+                                                      content: (offset, self?.titleCollectionView.contentSize ?? .zero))
                 Table8StateTool.shared.playOffsetRelay.accept(dict)
             }
 
@@ -136,7 +147,7 @@ class Table8Cell: UITableViewCell {
         })
         .disposed(by: disposeBag)
         // 将其他的变化对应到本cell上
-        Table8StateTool.shared.playOffsetRelay.map{ [weak self] _ in
+        Table8StateTool.shared.playOffsetRelay.map { [weak self] _ in
             return Table8StateTool.playOffset(type: self?.type)
         }
         .subscribe(onNext: { [weak self] offset in
