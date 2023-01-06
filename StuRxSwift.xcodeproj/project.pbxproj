@@ -32,6 +32,7 @@
 		577623F82943172E00122ADD /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577623F72943172E00122ADD /* API.swift */; };
 		5776E3922967B2D0005721BF /* CollectionFallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5776E3912967B2D0005721BF /* CollectionFallViewController.swift */; };
 		5776E3942967C89A005721BF /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5776E3932967C89A005721BF /* ColorExtensions.swift */; };
+		5776E3962967E774005721BF /* CollectionHorPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5776E3952967E774005721BF /* CollectionHorPageViewController.swift */; };
 		578C2FF8295E897B00B610E8 /* Share1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578C2FF7295E897B00B610E8 /* Share1ViewController.swift */; };
 		578C2FFB295E924300B610E8 /* ScrollViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578C2FFA295E924300B610E8 /* ScrollViewExtensions.swift */; };
 		578C2FFE295E945100B610E8 /* UIScrollView1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578C2FFD295E945100B610E8 /* UIScrollView1ViewController.swift */; };
@@ -112,6 +113,7 @@
 		577623F72943172E00122ADD /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		5776E3912967B2D0005721BF /* CollectionFallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionFallViewController.swift; sourceTree = "<group>"; };
 		5776E3932967C89A005721BF /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
+		5776E3952967E774005721BF /* CollectionHorPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHorPageViewController.swift; sourceTree = "<group>"; };
 		578C2FF7295E897B00B610E8 /* Share1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Share1ViewController.swift; sourceTree = "<group>"; };
 		578C2FFA295E924300B610E8 /* ScrollViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewExtensions.swift; sourceTree = "<group>"; };
 		578C2FFD295E945100B610E8 /* UIScrollView1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView1ViewController.swift; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 			children = (
 				579A896D295AF7B800A2B55F /* Collection1ViewController.swift */,
 				5776E3912967B2D0005721BF /* CollectionFallViewController.swift */,
+				5776E3952967E774005721BF /* CollectionHorPageViewController.swift */,
 			);
 			path = collection1;
 			sourceTree = "<group>";
@@ -694,6 +697,7 @@
 				578C300A295ECA1500B610E8 /* GitHubSignupState.swift in Sources */,
 				578CA7D62962714E0003F1F5 /* MoyaDouBanAPI.swift in Sources */,
 				5775CB472956D4A2008202BA /* Table8ViewController.swift in Sources */,
+				5776E3962967E774005721BF /* CollectionHorPageViewController.swift in Sources */,
 				578C3013295EF4D700B610E8 /* SportLightViewController.swift in Sources */,
 				578CA7DC296281F30003F1F5 /* MoyaNetwork.swift in Sources */,
 				577572762953FAE500504720 /* TestTable3ViewController.swift in Sources */,

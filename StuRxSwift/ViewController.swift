@@ -51,7 +51,8 @@ class ViewController: UIViewController {
         Moya2ViewController.self,
         MVVM1ViewController.self,
         MVVM2ViewController.self,
-        CollectionFallViewController.self
+        CollectionFallViewController.self,
+        CollectionHorPageViewController.self
     ].reversed())
     override func viewDidLoad() {
         super.viewDidLoad()
