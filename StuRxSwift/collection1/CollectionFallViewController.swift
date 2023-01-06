@@ -7,6 +7,11 @@
 
 import UIKit
 
+/**
+ 参考：
+ https://juejin.cn/post/6844903543262937095
+ */
+
 @objc protocol FallCollectionViewLayoutDelegate {
     // waterFall的列数
     func columnOfWaterFall(_ collectionView: UICollectionView) -> Int

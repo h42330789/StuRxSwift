@@ -7,6 +7,12 @@
 
 import UIKit
 
+/**
+ 参考：
+ https://juejin.cn/post/6844903533498597384
+ https://juejin.cn/post/6844903533507002376
+ */
+
 class HorPageCollectionViewFlowLayout: UICollectionViewFlowLayout {
     // 是否在不满一页时，展示空白补足一页
     var isPageEmpty: Bool = true
