@@ -22,10 +22,13 @@ class Snap1ViewController: BaseViewController {
         view.addSubview(boxOutter)
         boxInner.backgroundColor = .green
         boxOutter.addSubview(boxInner)
-        
+        // a.left = b.right*multiber+offset
+        // left\width\height -> ConstraintMakerExtendable(type):ConstraintMakerRelatable
+        // equal+offset+mul -> ConstraintMakerEditable:ConstraintMakerPrioritizable
         boxOutter.snp.makeConstraints { (make) -> Void in
             make.width.equalTo(view).offset(-90.0).multipliedBy(0.5)
             make.height.equalTo(200)
+//            make.width.equalToSuperview()
             make.center.equalTo(self.view)
         }
          
