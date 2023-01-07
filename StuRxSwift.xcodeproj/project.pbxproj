@@ -33,6 +33,9 @@
 		5776E3922967B2D0005721BF /* CollectionFallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5776E3912967B2D0005721BF /* CollectionFallViewController.swift */; };
 		5776E3942967C89A005721BF /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5776E3932967C89A005721BF /* ColorExtensions.swift */; };
 		5776E3962967E774005721BF /* CollectionHorPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5776E3952967E774005721BF /* CollectionHorPageViewController.swift */; };
+		5777AB7E29691E6F00ACC7A9 /* CollectionDecorationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5777AB7D29691E6F00ACC7A9 /* CollectionDecorationViewController.swift */; };
+		5777AB8029695AE800ACC7A9 /* CollectionFixHeadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5777AB7F29695AE800ACC7A9 /* CollectionFixHeadViewController.swift */; };
+		5777AB822969747E00ACC7A9 /* CustomePageWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5777AB812969747E00ACC7A9 /* CustomePageWidthViewController.swift */; };
 		578C2FF8295E897B00B610E8 /* Share1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578C2FF7295E897B00B610E8 /* Share1ViewController.swift */; };
 		578C2FFB295E924300B610E8 /* ScrollViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578C2FFA295E924300B610E8 /* ScrollViewExtensions.swift */; };
 		578C2FFE295E945100B610E8 /* UIScrollView1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578C2FFD295E945100B610E8 /* UIScrollView1ViewController.swift */; };
@@ -114,6 +117,9 @@
 		5776E3912967B2D0005721BF /* CollectionFallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionFallViewController.swift; sourceTree = "<group>"; };
 		5776E3932967C89A005721BF /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		5776E3952967E774005721BF /* CollectionHorPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHorPageViewController.swift; sourceTree = "<group>"; };
+		5777AB7D29691E6F00ACC7A9 /* CollectionDecorationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDecorationViewController.swift; sourceTree = "<group>"; };
+		5777AB7F29695AE800ACC7A9 /* CollectionFixHeadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionFixHeadViewController.swift; sourceTree = "<group>"; };
+		5777AB812969747E00ACC7A9 /* CustomePageWidthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomePageWidthViewController.swift; sourceTree = "<group>"; };
 		578C2FF7295E897B00B610E8 /* Share1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Share1ViewController.swift; sourceTree = "<group>"; };
 		578C2FFA295E924300B610E8 /* ScrollViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewExtensions.swift; sourceTree = "<group>"; };
 		578C2FFD295E945100B610E8 /* UIScrollView1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView1ViewController.swift; sourceTree = "<group>"; };
@@ -402,6 +408,9 @@
 				579A896D295AF7B800A2B55F /* Collection1ViewController.swift */,
 				5776E3912967B2D0005721BF /* CollectionFallViewController.swift */,
 				5776E3952967E774005721BF /* CollectionHorPageViewController.swift */,
+				5777AB7D29691E6F00ACC7A9 /* CollectionDecorationViewController.swift */,
+				5777AB7F29695AE800ACC7A9 /* CollectionFixHeadViewController.swift */,
+				5777AB812969747E00ACC7A9 /* CustomePageWidthViewController.swift */,
 			);
 			path = collection1;
 			sourceTree = "<group>";
@@ -691,6 +700,7 @@
 				578C3006295EB5BF00B610E8 /* BaseViewController.swift in Sources */,
 				57930B09295FD56C00D28C60 /* UNNotificationViewController.swift in Sources */,
 				577623CC2943162500122ADD /* ViewController.swift in Sources */,
+				5777AB8029695AE800ACC7A9 /* CollectionFixHeadViewController.swift in Sources */,
 				5775727B295405B800504720 /* TestTable4ViewController.swift in Sources */,
 				577623C82943162500122ADD /* AppDelegate.swift in Sources */,
 				578C3008295ECA0300B610E8 /* RxFeedBack3ViewController.swift in Sources */,
@@ -699,6 +709,7 @@
 				5775CB472956D4A2008202BA /* Table8ViewController.swift in Sources */,
 				5776E3962967E774005721BF /* CollectionHorPageViewController.swift in Sources */,
 				578C3013295EF4D700B610E8 /* SportLightViewController.swift in Sources */,
+				5777AB7E29691E6F00ACC7A9 /* CollectionDecorationViewController.swift in Sources */,
 				578CA7DC296281F30003F1F5 /* MoyaNetwork.swift in Sources */,
 				577572762953FAE500504720 /* TestTable3ViewController.swift in Sources */,
 				5774E4EF294FF6D500AC5E99 /* Music.swift in Sources */,
@@ -712,6 +723,7 @@
 				573A83F32956EB6D004669C9 /* Table8Cell.swift in Sources */,
 				578CA7E72962A0640003F1F5 /* MVVM1ViewController.swift in Sources */,
 				57930B0C29600EF600D28C60 /* Snap1ViewController.swift in Sources */,
+				5777AB822969747E00ACC7A9 /* CustomePageWidthViewController.swift in Sources */,
 				5776E3922967B2D0005721BF /* CollectionFallViewController.swift in Sources */,
 				578CA7DA2962808D0003F1F5 /* HttpBinAPI.swift in Sources */,
 				577623F82943172E00122ADD /* API.swift in Sources */,

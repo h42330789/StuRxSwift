@@ -8,6 +8,11 @@
 import UIKit
 
 public extension UIColor {
+    
+    static var random: UIColor {
+        return random()
+    }
+    
     static func random(randomizeAlpha: Bool = false) -> UIColor {
         let r = CGFloat.random(in: 0...255) / 255.0
         let g = CGFloat.random(in: 0...255) / 255.0

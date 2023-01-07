@@ -52,7 +52,10 @@ class ViewController: UIViewController {
         MVVM1ViewController.self,
         MVVM2ViewController.self,
         CollectionFallViewController.self,
-        CollectionHorPageViewController.self
+        CollectionHorPageViewController.self,
+        CollectionDecorationViewController.self,
+        CollectionFixHeadViewController.self,
+        CustomePageWidthViewController.self
     ].reversed())
     override func viewDidLoad() {
         super.viewDidLoad()
